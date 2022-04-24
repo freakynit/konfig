@@ -48,7 +48,7 @@ import {konfig} from 'konfig';
 const config = await konfig('./config.yaml');
 ```
 
-### 3. Load from S3 using `konfig-s3-loader` plugin
+### 3. Load from S3 using [konfig-s3-loader](https://github.com/freakynit/konfig-s3-loader) plugin
 ```typescript
 // npm install --save konfig-s3-loader
 import {konfig, contracts} from 'konfig';
@@ -63,6 +63,7 @@ const s3Provider = (): contracts.Loader => S3Provider({
 });
 const config = await konfig('s3://<bucket>/<config-file-path>', {loader: s3Provider});
 ```
+> More details on plugin page
 
 ## 🔬Architecture
 `Konfig` expects 2 parameters, both optional.
