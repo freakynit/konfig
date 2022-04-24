@@ -19,7 +19,6 @@ export type Providers = {
 };
 
 export const configure = async (input?: string, providers?: Providers): Promise<string> => {
-    input = input || 'config.yaml';
     let loader = providers?.loader || FileLoader;
     let tokenizer = providers?.tokenizer || SimpleTokenizer;
     let tokenSubstitutor = providers?.tokenSubstitutor || EnvTokenSubstitutor
@@ -32,19 +31,3 @@ export const configure = async (input?: string, providers?: Providers): Promise<
 
     return parser.parse(tokenizer.tokenize(await loader.load(input), tokenSubstitutor));
 };
-
-// export const configure = async (
-//     input?: string
-//     , loader?: contracts.Loader
-//     , tokenizer?: contracts.Tokenizer
-//     , tokenSubstitutor?: contracts.TokenSubstitutor
-//     , parser?: contracts.Parser): Promise<string> => {
-//
-//     input = input || 'config.yaml';
-//     loader = loader || FileLoader;
-//     parser = parser || YamlParser;
-//     tokenizer = tokenizer || SimpleTokenizer;
-//     tokenSubstitutor = tokenSubstitutor || EnvTokenSubstitutor
-//
-//     return parser.parse(tokenizer.tokenize(await loader.load(input), tokenSubstitutor));
-// };

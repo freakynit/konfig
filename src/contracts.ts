@@ -1,7 +1,7 @@
 import {PathLike} from 'fs';
 
 export interface Loader {
-    load(uri: PathLike): Promise<string>
+    load(uri?: PathLike): Promise<string>
 };
 
 export interface Parser {
