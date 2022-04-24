@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branhces: [main]
+    branhces: [main, master]
   pull_request:
-    branhces: [main]
+    branhces: [main, master]
 
 jobs:
   build:
