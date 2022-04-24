@@ -17,7 +17,7 @@
     "build": "npm run tsc",
     "pretest": "npm run build",
     "coverage": "jest --coverage --no-cache",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "keywords": [
     "config",
