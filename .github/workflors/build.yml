@@ -1,0 +1,24 @@
+name: build
+
+on:
+  push:
+    branhces: [main]
+  pull_request:
+    branhces: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: NPM Install and Build
+        run: npm install && npm run build
+      - name: Test
+        run: npm test

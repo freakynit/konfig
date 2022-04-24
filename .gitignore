@@ -1,0 +1,12 @@
+test-report.html
+coverage
+.DS_Store
+dist
+.idea
+*.iml
+tmp/
+temp/
+.tscache
+npm-debug.log
+node_modules
+
