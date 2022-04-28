@@ -23,7 +23,7 @@
 ## ☝️Why
 Because something simple that just works is always desired over something that is complex and difficult to setup. Exposing 100's of options is not an option... pun intended. The pre-packaged implementation includes support for:
 * Loading config file from local disk
-* YAML based config
+* YAML and JSON based config
 * Replacing tokens from environment variables for different deployment environments.
 > And yes, you don't need (you shouldn't) have different configuration files for different environments. Definition should be same. Only values should change.
 
