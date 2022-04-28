@@ -80,6 +80,23 @@ const config = await konfig('config.toml', {parser: TomlParser});
 ```
 > More details on plugin page
 
+### 6. Combining different plugins (example of loading TOML config file from S3)
+```typescript
+import {konfig} from 'konfig';
+import {S3Provider} from 'konfig-s3-loader';
+import {TomlParser} from 'konfig-toml-parser';
+
+const s3Provider = (): contracts.Loader => S3Provider({
+    s3Config: {
+        accessKeyId: '<AWS_S3_ACCESS_KEY>',
+        secretAccessKey: '<AWS_S3_ACCESS_KEY_SECRET>',
+        region: '<AWS_S3_REGION>'
+    }
+});
+
+const config = await konfig('s3://<bucket>/<config-file-path>', {loader: s3Provider, parser: TomlParser});
+```
+
 ## 🔬Architecture
 `Konfig` expects 2 parameters, both optional.
 1. A `uri`, or a `string` like object, which represents the location of config file.
