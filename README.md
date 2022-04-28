@@ -28,7 +28,7 @@ Because something simple that just works is always desired over something that i
 > And yes, you don't need (you shouldn't) have different configuration files for different environments. Definition should be same. Only values should change.
 
 ## 🔥Usage
-We'll consider following config file as an example:
+We'll consider following yaml config file as an example:
 ```yaml
 port: ${PORT:-8001}
 logLevel: ${LOG_LEVEL:-info}
