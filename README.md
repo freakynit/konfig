@@ -12,8 +12,8 @@
 ## ⚡️Features
 * Dead simple
 * Super extensible
-  - Configure in Yaml`(pre-packaged)`, JSON, TOML, Properties,... ✔.
-  - Configure from local file`(pre-packaged)`, S3, HTTP, Etcd, redis, MySQL,... ✔.
+  - Configure in Yaml`(pre-packaged)`, JSON`(pre-packaged)`, TOML`(plugin available)`, Properties,... ✔.
+  - Configure from local file`(pre-packaged)`, S3`(plugin available)`, HTTP, Etcd, redis, MySQL,... ✔.
   - Replace tokens from environment variables`(pre-packaged)`, vault, etcd, DB,... ✔.
 * Super tiny, just one dependency
 * Plugin based architecture
@@ -48,7 +48,13 @@ import {konfig} from 'konfig';
 const config = await konfig('./config.yaml');
 ```
 
-### 3. Load from S3 using [konfig-s3-loader](https://github.com/freakynit/konfig-s3-loader) plugin
+### 3. Using JSON config file instead of YAML
+```typescript
+import {konfig, parsers} from 'konfig';
+const config = await konfig('./config.json', {parser: parsers.JsonParser})
+```
+
+### 4. Load from S3 using [konfig-s3-loader](https://github.com/freakynit/konfig-s3-loader) plugin
 ```typescript
 // npm install --save konfig-s3-loader
 import {konfig, contracts} from 'konfig';
@@ -62,6 +68,15 @@ const s3Provider = (): contracts.Loader => S3Provider({
   }
 });
 const config = await konfig('s3://<bucket>/<config-file-path>', {loader: s3Provider});
+```
+> More details on plugin page
+
+### 5. Using TOML config file instead of YAML using [konfig-toml-parser](https://github.com/freakynit/konfig-toml-parser) plugin
+```typescript
+import {konfig} from 'konfig';
+import {TomlParser} from 'konfig-toml-parser';
+
+const config = await konfig('config.toml', {parser: TomlParser});
 ```
 > More details on plugin page
 
